@@ -1,0 +1,118 @@
+
+ =========================================================
+  LEGIONFORGE 7.3.5 - автоматическая компиляция сервера
+ =========================================================
+
+  Что будет сделано:
+    1. Загрузка инструментов в tools\  - около 3 ГБ, один раз
+    2. Установка Visual Studio 2022 Build Tools, если компилятора нет
+    3. Компиляция ядра - обычно 30-90 минут, зависит от ПК
+    4. Копирование готовых .exe и .dll в папку server\
+
+  Нужно: интернет, ~30 ГБ свободного места, 8+ ГБ ОЗУ.
+  Повторный запуск продолжит с места остановки.
+
+Для продолжения нажмите любую клавишу . . .
+
+  LEGIONFORGE 7.3.5 - автоматическая компиляция сервера
+  Журнал: D:\legionforge\build_log.txt
+
+  [*] Свободно на диске: 665,7 ГБ; ОЗУ: 8 ГБ; ядер ЦП: 4
+
+  [*] Шаг 1/4. Подготовка портативных инструментов в tools\
+  [OK] Найден установленный 7-Zip: C:\Program Files\7-Zip\7z.exe
+  [OK] CMake уже подготовлен: tools\cmake
+  [OK] Найден компилятор: Visual Studio Build Tools 2022 17.14.37614.0
+  [OK] Boost 1.86.0 уже подготовлен: tools\boost_1_86_0
+  [OK] OpenSSL уже подготовлен: tools\openssl
+  [OK] MySQL для сборки: D:\legionforge\tools\mysql\server
+
+  [*] Шаг 2/4. Генерация проекта CMake (1-3 минуты)...
+-- Selecting Windows SDK version 10.0.26100.0 to target Windows 10.0.19045.
+-- Detected 64-bit platform
+-- MSVC: 64-bit platform, enforced -D_WIN64 parameter
+-- MSVC: Enabled increased number of sections in object files
+-- MSVC: Disabled NON-SECURE warnings
+-- MSVC: Enabled legacy STL helpers (_HAS_AUTO_PTR_ETC) + NOMINMAX
+-- MSVC: C++ standard pinned to C++14
+-- MSVC: Disabled POSIX warnings
+-- MSVC: Disabled generic compiletime warnings
+-- cotire 1.7.10 loaded.
+-- Found MySQL library: D:/legionforge/tools/mysql/server/lib/libmysql.lib
+-- Found MySQL headers: D:/legionforge/tools/mysql/server/include
+* LEGIONFORGE revision   : rev.1 2026-10-12 06:51:44 (Legion 7.3.5.26124 branch)
+* Install core to        : C:/Program Files/LEGIONFORGE
+* Build world/auth       : Yes (default)
+* Build with scripts     : Yes (static)
+* Build map/vmap tools   : Yes (default)
+* Build core w/PCH       : Yes (default)
+* Build scripts w/PCH    : Yes (default)
+* Show compile-warnings  : No  (default)
+* Use coreside debug     : No  (default)
+* Show source tree       : Yes (hierarchical)
+* Use GIT revision hash  : No
+ *** WITHOUT_GIT - WARNING!
+ *** By choosing the WITHOUT_GIT option you have waived all rights for support,
+ *** and accept that or all requests for support or assistance sent to the core
+ *** developers will be rejected. This due to that we will be unable to detect
+ *** what revision of the codebase you are using in a proper way.
+ *** We remind you that you need to use the repository codebase and a supported
+ *** version of git for the revision-hash to work, and be allowede to ask for
+ *** support if needed.
+Boost 1.66 found.
+Found Boost components:
+   system;filesystem;thread;program_options;iostreams
+-- Found OpenSSL library: optimized;D:/legionforge/tools/openssl/lib/VC/x64/MD/libssl.lib;optimized;D:/legionforge/tools/openssl/lib/VC/x64/MD/libcrypto.lib;debug;D:/legionforge/tools/openssl/lib/VC/x64/MDd/libssl.lib;debug;D:/legionforge/tools/openssl/lib/VC/x64/MDd/libcrypto.lib
+-- Found OpenSSL headers: D:/legionforge/tools/openssl/include
+-- OpenSSL found by find_package: 3.0.0
+* Script configuration (static):
+    |
+    +- worldserver
+    |   +- BrokenIsles
+    |   +- Commands
+    |   +- Custom
+    |   +- DarkmoonIsland
+    |   +- Draenor
+    |   +- EasternKingdoms
+    |   +- Events
+    |   +- Kalimdor
+    |   +- Maelstrom
+    |   +- Northrend
+    |   +- OutdoorPvP
+    |   +- Outland
+    |   +- Pandaria
+    |   +- Pet
+    |   +- PlayerBot
+    |   +- Spells
+    |   +- World
+    |
+-- Configuring done (10.1s)
+-- Generating done (4.3s)
+-- Build files have been written to: D:/legionforge/build
+  [OK] Проект сгенерирован.
+
+  [*] Шаг 3/4. Компиляция (параллельных проектов: 2, PCH: да). Обычно 30-90 минут...
+  [готово] zlib.lib
+  [готово] fmt.lib
+  [готово] gsoap.lib
+  [готово] bzip2.lib
+  [готово] Detour.lib
+  [готово] Recast.lib
+  [готово] protobuf.lib
+  [готово] casc.lib
+  [готово] g3dlib.lib
+  [готово] duktape.lib
+  [готово] common.lib
+  [готово] extractor_common.lib
+  [готово] vmap4assembler.exe
+  [готово] connection_patcher.exe
+  ... идёт компиляция: 00:02:02
+  [готово] mapextractor.exe
+  [готово] database.lib
+  [готово] vmap4extractor.exe
+  [готово] mmaps_generator.exe
+  [готово] proto.lib
+  [готово] shared.lib
+  [готово] bnetserver.exe
+  ... идёт компиляция: 00:05:25
+  D:\legionforge\core\src\server\game\DataStores\DB2Stores.cpp(989,13): error C3861: TC_LOG_ERROR: идентификатор не найден [D:\legionforge\build\src\server\game\game.vcxproj]
